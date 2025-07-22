@@ -30,7 +30,7 @@ import { Input } from 'ant-design-vue'
 import type { InputProps } from 'ant-design-vue/es/vc-input/inputProps'
 import { useAttrs, useSlots } from 'vue'
 const slots = useSlots() as Record<string, unknown>
-const { size = 'large' } = defineProps<InputProps>()
+const { size = 'middle' } = defineProps<InputProps>()
 const model = defineModel<string | number | undefined>()
 const attrs = useAttrs()
 </script>

@@ -14,10 +14,8 @@ export namespace Post {
     updated_at: string
   }
   export interface CreatePostDTO {
-    full_name: string
-    section_name: string
-    login: string
-    password: string
-    confirmPassword: string
+    title: string
+    body: string
+    userId: number | undefined
   }
 }
