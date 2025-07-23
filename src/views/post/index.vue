@@ -63,7 +63,9 @@ const { mutate } = useMutation({
         </div>
       </template>
     </BaseTable>
-    <BasePagination :page-size="limit" :total v-model="page"></BasePagination>
+    <div class="mt-1">
+      <BasePagination :page-size="limit" :total v-model="page"></BasePagination>
+    </div>
   </div>
 </template>
 
