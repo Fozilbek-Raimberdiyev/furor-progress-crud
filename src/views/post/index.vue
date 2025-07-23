@@ -2,12 +2,14 @@
 <script setup lang="ts">
 import { Popconfirm } from 'ant-design-vue'
 import BaseButton from '@/components/BaseButton/BaseButton.vue'
+import { useRouteQuery } from '@vueuse/router'
 import BaseIcon from '@/components/BaseIcon.vue'
 import BaseTable from '@/components/BaseTable/BaseTable.vue'
 import { getPosts, deletePost } from '@/services/post/post.service'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { showInfoToast, showSuccessToast } from '@/utils'
+import BasePagination from '@/components/BasePagination/BasePagination.vue'
 const client = useQueryClient()
 const columns = [
   { title: 'Sarlavha', dataIndex: 'title', key: 'title' },
@@ -15,10 +17,12 @@ const columns = [
   { title: 'Foydalanuvchi idsi', dataIndex: 'userId', key: 'userId' },
   { title: 'Amallar', dataIndex: 'actions', key: 'actions' },
 ]
-const page = ref(1)
+const page = useRouteQuery('page', 1, { transform: Number })
+const total = ref(100)
+const limit = ref(20)
 const { data, isFetching } = useQuery({
-  queryKey: ['posts'],
-  queryFn: () => getPosts(),
+  queryKey: ['posts', computed(() => page.value)],
+  queryFn: () => getPosts({ _page: page.value, _limit: limit.value }),
   select: (data) => data.data,
 })
 const { mutate } = useMutation({
@@ -59,6 +63,7 @@ const { mutate } = useMutation({
         </div>
       </template>
     </BaseTable>
+    <BasePagination :page-size="limit" :total v-model="page"></BasePagination>
   </div>
 </template>
 

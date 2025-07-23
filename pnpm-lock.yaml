@@ -14,6 +14,9 @@ importers:
       '@tanstack/vue-query':
         specifier: ^5.83.0
         version: 5.83.0(vue@3.5.17(typescript@5.8.3))
+      '@vueuse/router':
+        specifier: ^13.5.0
+        version: 13.5.0(vue-router@4.5.1(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))
       ant-design-vue:
         specifier: 4.x
         version: 4.2.6(vue@3.5.17(typescript@5.8.3))
@@ -915,6 +918,17 @@ packages:
         optional: true
       vue:
         optional: true
+
+  '@vueuse/router@13.5.0':
+    resolution: {integrity: sha512-QI735rn3FPMnEAqiwJKdYN2byMn1orRBcBq9YuZS/QSYUNV7tR8jhU99s7Vix+BL0YEIk/nU7lUZA0IOCarGzg==}
+    peerDependencies:
+      vue: ^3.5.0
+      vue-router: ^4.0.0
+
+  '@vueuse/shared@13.5.0':
+    resolution: {integrity: sha512-K7GrQIxJ/ANtucxIXbQlUHdB0TPA8c+q5i+zbrjxuhJCnJ9GtBg75sBSnvmLSxHKPg2Yo8w62PWksl9kwH0Q8g==}
+    peerDependencies:
+      vue: ^3.5.0
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -2904,6 +2918,16 @@ snapshots:
   '@vue/tsconfig@0.7.0(typescript@5.8.3)(vue@3.5.17(typescript@5.8.3))':
     optionalDependencies:
       typescript: 5.8.3
+      vue: 3.5.17(typescript@5.8.3)
+
+  '@vueuse/router@13.5.0(vue-router@4.5.1(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))':
+    dependencies:
+      '@vueuse/shared': 13.5.0(vue@3.5.17(typescript@5.8.3))
+      vue: 3.5.17(typescript@5.8.3)
+      vue-router: 4.5.1(vue@3.5.17(typescript@5.8.3))
+
+  '@vueuse/shared@13.5.0(vue@3.5.17(typescript@5.8.3))':
+    dependencies:
       vue: 3.5.17(typescript@5.8.3)
 
   acorn-jsx@5.3.2(acorn@8.15.0):

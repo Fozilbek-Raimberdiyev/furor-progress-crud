@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace Post {
   export interface Params {
-    page?: number
-    limit?: number
+    _page?: number
+    _limit?: number
   }
   export interface IPost {
     id: number
